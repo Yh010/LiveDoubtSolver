@@ -1,6 +1,8 @@
+import GeminiBox from "./Gemini/GeminiBox";
 import useSpeechRecognition from "./SpeechRecog";
+import React from "react";
 
-const MainSpeechtoText = () => {
+const SpeechToTextComponent = () => {
   const {
     text,
     isListening,
@@ -47,7 +49,9 @@ const MainSpeechtoText = () => {
           </div>
 
           {isListening && <div>Listening...</div>}
-          <div style={{ marginTop: "20px", fontSize: "18px" }}>{text}</div>
+          <div style={{ marginTop: "20px", fontSize: "18px" }}>
+            <GeminiBox text={text} />
+          </div>
         </>
       ) : (
         <h1>Speech recognition is not supported in this browser.</h1>
@@ -55,4 +59,5 @@ const MainSpeechtoText = () => {
     </div>
   );
 };
-export default MainSpeechtoText;
+
+export default SpeechToTextComponent;
